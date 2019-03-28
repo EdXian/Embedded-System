@@ -10,7 +10,6 @@ sdf
 sdvf
 xcv
 sdv
-
 ```
 
 $$
@@ -18,6 +17,4 @@ $$
 $$
 
 ertgergkmolekmfvgkemfvpkemfpv
-
-
 
