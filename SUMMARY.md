@@ -8,7 +8,6 @@
   * [任務控制塊](task-management-1/task-control-table.md)
   * [任務推疊](task-management-1/system-stack.md)
   * [系統任務](task-management-1/system-task.md)
-  * [Untitled](task-management-1/untitled-1.md)
 * [實驗](experiment/README.md)
   * [安裝](experiment/install.md)
   * [常見函數](experiment/common-functions.md)
