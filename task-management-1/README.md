@@ -1,10 +1,6 @@
 # 任務管理
 
-
-
-### [任務管理 Task Management](https://hackmd.io/d4OmtJbsSGW6urKudTIUMw?view#任務管理Task-Management)
-
-#### 任務狀態\(State\)
+## 任務狀態
 
 ![&#x4EFB;&#x52D9;&#x72C0;&#x614B;](https://i.imgur.com/KT7PAQy.png)
 
@@ -16,7 +12,9 @@
 | 中斷服務處理\(Interrupt Service Routine\) | 當外部或內部中斷被觸發時，CPU會放下運行狀態的任務，優先處理中斷服務內的任務，等到處理結束，在跳轉回來 |
 | 休眠\(Dormant\) | 當任務被刪除時會跳到此狀態。 |
 
-> 在單核心CPU內一次只能處理一個任務，當有更高優先權的任務要被執行時，CPU將會放棄原本任務，並優先處裡優先級較高的任務，完成後再繼續執行原本任務,兩次任務之間都會有中斷發生。
+{% hint style="info" %}
+在單核心CPU內一次只能處理一個任務，當有更高優先權的任務要被執行時，CPU將會放棄原本任務，並優先處裡優先級較高的任務，完成後再繼續執行原本任務,兩次任務之間都會有中斷發生。
+{% endhint %}
 
-#### 
+
 
