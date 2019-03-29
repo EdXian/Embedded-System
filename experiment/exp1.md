@@ -1,5 +1,7 @@
 # 實驗1
 
+
+
 ### 範例1
 
 ```cpp
@@ -255,11 +257,5 @@ digraph hierarchy {
 }
 ```
 
-OSTaskCtr OSCPUUsage OSCtxSwCtr OSVersion\(\) OSSemCreate\(\) //Random number semaphore OSTaskCreate\(\) OSStart\(\) OSStatInit\(\)// Initialize uC/OS-II's statistics OSSemPend\(\) OSSemPost\(\)
 
-PC\_DispStr\(column,row,"string",color\) PC\_DispClrScr\(\) // Clear the screen PC\_DOSSaveReturn\(\) //Save environment to return to DOS PC\_VectSet\(\)//Install uC/OS-II's context switch vector PC\_SetTickRate\(OS\_TICKS\_PER\_SEC\)// Reprogram tick rate PC\_DOSReturn\(\)// Return to DOS OSTimeDlyHMSM\(\)
-
-sprintf\(\)
-
-unknown variable 1. \_8087 2. pdata
 
