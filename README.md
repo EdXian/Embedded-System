@@ -2,7 +2,7 @@
 description: A note for Embeded-System
 ---
 
-# Embeded-System
+# 嵌入式系統
 
 ```text
 re
