@@ -14,4 +14,8 @@
   * [常見函數](experiment/common-functions.md)
   * [實驗1](experiment/exp1.md)
   * [實驗2](experiment/exp2.md)
+* [核心](kernel/README.md)
+  * [Untitled](kernel/untitled-2.md)
+  * [Untitled](kernel/untitled-1.md)
+  * [Untitled](kernel/untitled.md)
 
