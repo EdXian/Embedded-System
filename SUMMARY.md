@@ -1,6 +1,7 @@
 # Table of contents
 
 * [嵌入式系統](README.md)
+* [系統](system.md)
 * [中斷](intterupt/README.md)
   * [中斷向量](intterupt/interrupt-vector.md)
   * [中斷服務](intterupt/interrupt-service-routine.md)
