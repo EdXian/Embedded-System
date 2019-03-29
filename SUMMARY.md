@@ -15,7 +15,8 @@
   * [實驗1](experiment/exp1.md)
   * [實驗2](experiment/exp2.md)
 * [核心](kernel/README.md)
-  * [Untitled](kernel/untitled-2.md)
-  * [Untitled](kernel/untitled-1.md)
-  * [Untitled](kernel/untitled.md)
+  * [ucos\_II.c/.h](kernel/untitled-2.md)
+  * [os\_tasck.c](kernel/untitled-1.md)
+  * [INCLUDES.h](kernel/untitled.md)
+  * [OS\_CFG.h](kernel/os_cfg.h.md)
 
