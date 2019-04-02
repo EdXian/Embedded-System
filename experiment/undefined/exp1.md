@@ -6,7 +6,42 @@
 
 用RM方法製作，\({1,3},{3,6}\)
 
-#### Step1
+### 說明
+
+![timing-sequence diagram](../../.gitbook/assets/screenshot-from-2019-04-02-12-33-14.png)
+
+為了使得兩個task能依照目標的要求完成，必須修改一些系統的內容，下面程式是根據上方的時序圖所編寫
+
+{% code-tabs %}
+{% code-tabs-item title="pseudo" %}
+```c
+void task(void *pdata){
+  start = OSTimeGet();
+  OSTCBCur->period =3;
+  OSTCBCur->compTime=1;
+  while(1){
+  
+    while(OSTCBCur->compTime>0);    //wait unitl the next execute
+    end = OSTimeGet();
+    toDelay = (OSTCBCur->period)-(end-start);
+    start +=  (OSTCBCur->period);
+    OS_ENTER_CRITICAL();
+
+    OSTCBCur->compTime = c;
+    OS_EXIT_CRITICAL();
+    printf("task1\n");
+    OSTimeDly(toDelay);
+  }
+}
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+{% hint style="info" %}
+用 OS\_ENTER\_CRITICAL\(\) 以及 OS\_EXIT\_CRITICAL夾住，確保compTime再執行過程中不會被OSTimeTick打擾。
+{% endhint %}
+
+### Step1
 
 在uCOS\_II.H中找到ostcb並新增兩個成員 \`compTime\`和\`period\` ，型態為INT16U。compTime類似於count的功能，將會在OSTimeTick中被使用。period則是task的週期。
 
@@ -61,7 +96,7 @@ typedef struct os_tcb {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### Step2
+### Step2
 
 在OS\_CORE.c中找到OSTimeTick\(\)並在每次進入時讓compTime減1。\`ptcb\`為os\_tcb的指標型態，\`OSTCBList\`為指向第一個任務控制塊的指標。
 
@@ -114,7 +149,7 @@ void  OSTimeTick (void)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### Step3
+### Step3
 
 在主程式中掛起兩個任務task1以及task2，並配置兩個任務的c和p。
 
