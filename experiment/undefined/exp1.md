@@ -348,9 +348,7 @@ void  TaskStart (void *pdata)
 
 {% file src="../../.gitbook/assets/lab-1.pdf" caption="lab1" %}
 
-{% embed url="https://github.com/EdXian/Recursive-Least-Square/blob/master/mainwindow.cpp\#L34-L38/" caption="code" %}
-
-
+{% embed url="https://gist.github.com/EdXian/eb52beac49356a01f9f1c6ac7c36c06b\#file-apply\_wrench-L57-L63" %}
 
 
 
