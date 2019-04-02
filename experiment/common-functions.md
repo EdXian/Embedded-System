@@ -11,9 +11,11 @@
 | OSTimeTick \(void\) | 在系統發生計時中斷後會執行一次。 |
 |  OS\_Sched \(void\) | 目前任務完成，主動讓出CPU給其他任務 |
 | OSIntExit \(void\) | 系統發生中斷服務後，退回中斷服務時會使用 |
-| OSTimeDly\(tick\) | 任務延遲tick時間，此時會讓出CPU |
+| OSTimeDly\(tick\) | 任務延遲tick時間，此時任務會主動讓出CPU |
+| OSTimeDlyHMSM\(\) | 任務延遲tick時間，此時任務會主動讓出CPU |
 | OSTaskCreateExt | 創新一個任務 |
 | OSTaskCreate | 創新一個任務 |
+|  |  |
 
 
 
