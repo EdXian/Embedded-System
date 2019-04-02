@@ -123,12 +123,11 @@ void  OSTimeTick (void)
 ```text
 void task1(void *pdata);
 void task2(void *pdata);
-
 ```
 {% endcode-tabs-item %}
 
 {% code-tabs-item title="task1" %}
-```
+```c
 void task1(void *pdata){
   //init
   INT16U start;
@@ -203,7 +202,7 @@ void task2(void *pdata){
 {% endcode-tabs-item %}
 
 {% code-tabs-item title="main" %}
-```
+```c
 
 #include "includes.h"
 
