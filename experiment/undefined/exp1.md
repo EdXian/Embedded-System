@@ -346,7 +346,11 @@ void  TaskStart (void *pdata)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-
-
 {% file src="../../.gitbook/assets/lab-1.pdf" caption="lab1" %}
+
+{% embed url="https://github.com/EdXian/Recursive-Least-Square/blob/master/mainwindow.cpp\#L34-L38/" caption="code" %}
+
+
+
+
 
