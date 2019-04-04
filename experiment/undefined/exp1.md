@@ -43,7 +43,7 @@ void task(void *pdata){
 
 ### Step1
 
-在uCOS\_II.H中找到ostcb並新增兩個成員 \`compTime\`和\`period\` ，型態為INT16U。compTime類似於count的功能，將會在OSTimeTick中被使用。period則是task的週期。
+需要修改[任務控制塊](../../task-management-1/task-control-table.md#ren-kong-zhi-task-control-block)，在uCOS\_II.H中找到os\_tcb並新增兩個成員 \`compTime\`和\`period\` ，型態為INT16U。compTime類似於count的功能，將會在OSTimeTick中被使用。period則是task的週期。
 
 {% code-tabs %}
 {% code-tabs-item title="os\_tcb" %}
