@@ -14,6 +14,8 @@ ucos的任務可以由三個部份組成，任務控制塊，任務推疊，任�
 | OSTCBStat | INT8U | 紀錄任務的狀態 |
 | OSTCBPrio | INT8U | 紀錄任務的優先級別 |
 
+## 任務控制塊的結構
+
 {% code-tabs %}
 {% code-tabs-item title="os\_tcb" %}
 ```c
@@ -67,36 +69,31 @@ typedef struct os_tcb {
 OSTCBStkPtr為tcb的第一個指標變數，地址指向任務推疊的最上層。方便組合語言進入記憶體位址操作。
 {% endhint %}
 
-操作任務控制塊的方法
+## 操作任務控制塊的方法
 
-```text
-  if (OSRunning == TRUE) {
+{% code-tabs %}
+{% code-tabs-item title="Accessing to os\_tcb" %}
+```c
+  if (OSRunning == TRUE) {          //判斷系統是否正在執行        
   
-        ptcb = OSTCBList;
+        ptcb = OSTCBList;            //ptcb 為一個os_tcb的指標型態 ，並將它指向任務列表的第一個任務
         
-        while (ptcb->OSTCBPrio != OS_IDLE_PRIO) {        
-            OS_ENTER_CRITICAL();
-                                          
+   while (ptcb->OSTCBPrio != OS_IDLE_PRIO) {  //如果這次所指向的任務控制塊的             
+                                             //優先級別不是最低的(idle task)         
+            
+              OS_ENTER_CRITICAL();     //進入臨界區域，保護下面程式執行不被中斷                                                                              
+       
+                   //執行程式
+       
+       
+            ptcb = ptcb->OSTCBNext;          //將指標指向下一個任務                  
+            OS_EXIT_CRITICAL();              //恢復系統的中斷
 
-
-            if (ptcb->OSTCBDly != 0) {
-
-                                     
-                if (--ptcb->OSTCBDly == 0) {              
-                    if ((ptcb->OSTCBStat & OS_STAT_SUSPEND) == OS_STAT_RDY) { 
-
-
-                        OSRdyGrp               |= ptcb->OSTCBBitY; 
-                        OSRdyTbl[ptcb->OSTCBY] |= ptcb->OSTCBBitX;
-                    } else {                              
-                        ptcb->OSTCBDly = 1;              
-                    }                                  
-            }
-            ptcb = ptcb->OSTCBNext;                    
-            OS_EXIT_CRITICAL();
         }
     }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 
 
