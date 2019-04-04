@@ -4,6 +4,8 @@
 
 ucos的任務可以由三個部份組成，任務控制塊，任務推疊，任務函數組成，其中任務控制塊縮寫TCB,為一個資料結構所組成，裡面紀錄任務的詳細資訊。
 
+## 任務控制塊的結構
+
 | 變數名稱 | 型態 | 功能 |
 | :--- | :--- | :--- |
 | OSTCBStkPtr | OS\_STK\* | 指向該任務推疊的最上層 |
@@ -13,8 +15,6 @@ ucos的任務可以由三個部份組成，任務控制塊，任務推疊，任�
 | OSTCBDly | INT16U | 紀錄此任務需要再延遲的tick次數 |
 | OSTCBStat | INT8U | 紀錄任務的狀態 |
 | OSTCBPrio | INT8U | 紀錄任務的優先級別 |
-
-## 任務控制塊的結構
 
 {% code-tabs %}
 {% code-tabs-item title="os\_tcb" %}
@@ -69,7 +69,13 @@ typedef struct os_tcb {
 OSTCBStkPtr為tcb的第一個指標變數，地址指向任務推疊的最上層。方便組合語言進入記憶體位址操作。
 {% endhint %}
 
-## 操作任務控制塊的方法
+## 任務列表
+
+任務列表\(OSTCBList\)是由很多任務控制塊所組成的list。
+
+![OSTCBList](../.gitbook/assets/ch03_html_m2e671ed1.png)
+
+## 操作任務列表的方法
 
 {% code-tabs %}
 {% code-tabs-item title="Accessing to os\_tcb" %}
