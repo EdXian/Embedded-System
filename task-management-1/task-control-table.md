@@ -101,5 +101,7 @@ OSTCBStkPtr為tcb的第一個指標變數，地址指向任務推疊的最上層
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-
+{% hint style="info" %}
+迴圈將從任務列表的第一個訪問到最後一個任務就行，因為idle task 是第最後一個任務，所以輪到idle task就結束。
+{% endhint %}
 
