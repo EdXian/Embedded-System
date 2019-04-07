@@ -126,7 +126,7 @@ int main()
     task_type* first_task = task; //定義first指標指向list的第一個元素
     task_type* last_task = &task[9]; //定義last指標指向list的最後一個元素
 
-//初始化 list
+                                //初始化 list
     for(int i =0 ;i<10 ;i++){
         if(i<9){
                task[i].next_task  = &task[i+1]; //將next_task只向下一個任務的位址
@@ -145,6 +145,8 @@ int main()
             task[i].prev_task = &task[i-1];     //將next_task只向下一個任務的位址
         }
     }
+
+
     //the main part
 
     task_type  *p;          //宣告一個指標變數
@@ -159,6 +161,7 @@ int main()
 
     return 0;
 }
+
 
 ```
 {% endcode-tabs-item %}
