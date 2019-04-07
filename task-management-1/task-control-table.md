@@ -105,3 +105,64 @@ OSTCBStkPtr為tcb的第一個指標變數，地址指向任務推疊的最上層
 迴圈將從任務列表的第一個訪問到最後一個任務就行，因為idle task 是第最後一個任務，所以輪到idle task就結束。
 {% endhint %}
 
+{% code-tabs %}
+{% code-tabs-item title="list" %}
+```text
+#include <iostream>
+
+using namespace std;
+
+//typedef os_stack task;
+ struct task_type{
+    int id;
+    int prio;
+     task_type* next_task;
+     task_type* prev_task;
+};
+
+int main()
+{
+
+    task_type task[10];
+    task_type* first_task = task;
+
+    //first_task->prev_task = NULL;
+
+    for(int i =0 ;i<10 ;i++){
+        if(i<9){
+               task[i].next_task  = &task[i+1];
+               task[i].id = i;
+        }else{
+            task[i].next_task = NULL;
+            task[i].id = i;
+
+        }
+        if(i<1){
+            task[i].prev_task = NULL;
+            task[i].prio    =  8-i;
+
+        }else{
+            task[i].prio    =  8-i;
+            task[i].prev_task = &task[i-1];
+        }
+    }
+    task_type* last_task = &task[9];
+
+
+    task_type  *p;
+    p=first_task ;
+
+    while(p!= last_task){
+
+        printf("id = %d, prio = %d\n",p->id , p->prio);
+        p++;
+
+    };
+
+    return 0;
+}
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
