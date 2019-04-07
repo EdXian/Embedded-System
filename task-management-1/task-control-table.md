@@ -112,8 +112,7 @@ OSTCBStkPtr為tcb的第一個指標變數，地址指向任務推疊的最上層
 
 using namespace std;
 
-//typedef os_stack task;
- struct task_type{
+struct task_type{
     int id;
     int prio;
      task_type* next_task;
@@ -124,38 +123,37 @@ int main()
 {
 
     task_type task[10];
-    task_type* first_task = task;
+    task_type* first_task = task; //定義first指標指向list的第一個元素
+    task_type* last_task = &task[9]; //定義last指標指向list的最後一個元素
 
-    //first_task->prev_task = NULL;
-
+//初始化 list
     for(int i =0 ;i<10 ;i++){
         if(i<9){
-               task[i].next_task  = &task[i+1];
+               task[i].next_task  = &task[i+1]; //將next_task只向下一個任務的位址
                task[i].id = i;
         }else{
-            task[i].next_task = NULL;
+            task[i].next_task = NULL;     //如果到最後一個任務則next_task指向 null
             task[i].id = i;
 
         }
         if(i<1){
-            task[i].prev_task = NULL;
+            task[i].prev_task = NULL;      //如果到第一個任務則prev_task指向 null
             task[i].prio    =  8-i;
 
         }else{
             task[i].prio    =  8-i;
-            task[i].prev_task = &task[i-1];
+            task[i].prev_task = &task[i-1];     //將next_task只向下一個任務的位址
         }
     }
-    task_type* last_task = &task[9];
+    //the main part
 
+    task_type  *p;          //宣告一個指標變數
+    p=first_task ;          //將它指向list第一個的地址
 
-    task_type  *p;
-    p=first_task ;
-
-    while(p!= last_task){
+    while(p!= last_task){   //如果p和last_task不相同 則繼續print
 
         printf("id = %d, prio = %d\n",p->id , p->prio);
-        p++;
+        p++;                //只向下一個任務
 
     };
 
