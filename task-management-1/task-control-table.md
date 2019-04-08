@@ -148,20 +148,22 @@ int main()
 
 
     //the main part
+    //用for迴圈進行操作
+    for(task_type* g= first_task;g!= last_task;g++){
+        printf("id = %d, prio = %d\n",g->id , g->prio);
+    }
+
 
     task_type  *p;          //宣告一個指標變數
     p=first_task ;          //將它指向list第一個的地址
-
+    printf("=============================\n");
     while(p!= last_task){   //如果p和last_task不相同 則繼續print
-
         printf("id = %d, prio = %d\n",p->id , p->prio);
-        p++;                //只向下一個任務
-
+        p = p->next_task;                //只向下一個任務
     };
 
     return 0;
 }
-
 
 ```
 {% endcode-tabs-item %}
